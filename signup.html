@@ -1,0 +1,163 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SignUp</title>
+    <link rel="stylesheet" href="cataloguesystem.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  </head>
+<body style="background-color:powderblue;">
+    
+<div class= "SignUp wrapper">
+<h1 align="center">SignUp</h1>
+</div>
+
+<center>
+<form name="myForm" action="signup.php" method="post" >
+  <div class="container1 wrapper">
+
+    <div>
+      <label for="uname"><h1>Username</h1></label>
+      <input type="text" id = "usern" name="username" class="form-control" placeholder="Enter Username"  required>
+      <span class="error_form" id="username_error_message"></span>
+
+    </div>
+
+    <div>
+    <label for="email"><h1>Email</h1></label>
+    <input type="text" id ="em" placeholder="Enter Email" name="email" required>
+    <span class="error_form" id="email_error_message"></span>
+  </div>
+
+<div>
+
+    <label for="psw"><h1>Password</h1></label>
+    <input type="password" id="form_password" placeholder="Enter Password" name="pwd" required>
+    <span class="error_form" id="pwd_error_message"></span>
+
+    </div>
+<div>
+    <label for="psw-repeat"><h1>Repeat Password</h1></label>
+    <input type="password" id="form_retype_password" placeholder="Repeat Password" name="pwd-repeat" required>
+    <span class="error_form" id="rpwd_error_message"></span>
+
+  </div>
+  
+    <label for="role"><h1>Role:</h1></label>
+    <select class="role" name="role">
+      <option value="Student">Student</option>
+      <option value="Professor">Professor</option>
+      <option value="Department">Department</option>
+    </select>
+
+      <div class="clearfix">
+        <button type="submit" name="signup" class="signupbtn">Sign Up</button>
+      </div>
+</form>
+</center>
+<script type="text/javascript">
+  $(function() {
+
+     $("#username_error_message").hide();
+     $("#email_error_message").hide();
+     $("#pwd_error_message").hide();
+     $("#rpwd_error_message").hide();
+
+     var error_username = false;
+     var error_email = false;
+     var error_password = false;
+     var error_retype_password = false;
+
+     $("#usern").focusout(function(){
+        check_fname();
+     });
+     $("#em").focusout(function() {
+        check_email();
+     });
+     $("#form_password").focusout(function() {
+        check_password();
+     });
+     $("#form_retype_password").focusout(function() {
+        check_retype_password();
+     });
+
+     function check_fname() {
+        var pattern = /^[a-zA-Z]*$/;
+        var fname = $("#usern").val();
+        if (pattern.test(fname) && fname !== '') {
+           $("#username_error_message").hide();
+           $("#usern").css("border-bottom","2px solid #34F458");
+        } else {
+           $("#username_error_message").html("Should contain only Characters");
+           $("#username_error_message").show();
+           $("#usern").css("border-bottom","2px solid #F90A0A");
+           error_username = true;
+        }
+     }
+
+     function check_password() {
+        var password_length = $("#form_password").val().length;
+        if (password_length < 8) {
+           $("#pwd_error_message").html("Should have atleast 8 Characters");
+           $("#pwd_error_message").show();
+           $("#form_password").css("border-bottom","2px solid #F90A0A");
+           error_password = true;
+        } else {
+           $("#pwd_error_message").hide();
+           $("#form_password").css("border-bottom","2px solid #34F458");
+        }
+     }
+
+     function check_retype_password() {
+        var password = $("#form_password").val();
+        var retype_password = $("#form_retype_password").val();
+        if (password !== retype_password) {
+           $("#rpwd_error_message").html("Passwords Did not Match");
+           $("#rpwd_error_message").show();
+           $("#form_retype_password").css("border-bottom","2px solid #F90A0A");
+           error_retype_password = true;
+        } else {
+           $("#rpwd_error_message").hide();
+           $("#form_retype_password").css("border-bottom","2px solid #34F458");
+        }
+     }
+
+     function check_email() {
+        var pattern = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        var email = $("#em").val();
+        if (pattern.test(email) && email !== '') {
+           $("#email_error_message").hide();
+           $("#em").css("border-bottom","2px solid #34F458");
+        } else {
+           $("#email_error_message").html("Invalid Email");
+           $("#email_error_message").show();
+           $("#em").css("border-bottom","2px solid #F90A0A");
+           error_email = true;
+        }
+     }
+
+     $("#signupbtn").submit(function() {
+      error_username = false;
+        error_email = false;
+        error_password = false;
+        error_retype_password = false;
+
+        check_fname();
+        check_email();
+        check_password();
+        check_retype_password();
+
+        if (error_username === false && error_email === false && error_password === false && error_retype_password === false) {
+           alert("Registration Successfull");
+           return true;
+        } else {
+           alert("Please Fill the form Correctly");
+           return false;
+        }
+
+
+     });
+  });
+</script>
+</body>
+</html>
+

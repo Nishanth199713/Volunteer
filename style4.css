@@ -1,0 +1,98 @@
+*{
+  font-family: Montserrat,sans-serif;
+  color:#2A2D34;
+}
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid grey;
+    background-color: lightgrey;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  .container {
+    border-radius: 5px;
+    background-color: lightgrey;
+    padding: 100px;
+    margin: 100px;
+    height: 70vh;
+  }
+  
+  .container1 {
+    border-radius: 5px;
+    background-color: white;
+    padding: 10%;
+    height: 100vh;
+  }
+  
+  #column1t1{
+    padding-top: 40px;
+  }
+  
+  #column2t2{
+  
+    display: inline-block;
+    text-align: left;
+    padding-top: 40px;
+  }
+  
+  #column2t2sub{
+    padding-left: 30px;
+    display: inline-block;
+    text-align: left;
+    padding-top: 40px;
+  }
+  
+  
+  .row{
+    display: flex;
+    background-color: white;
+  }
+  
+  .column1 {
+    flex: 50%;
+    height: 100%;
+    background-color: white;
+  }
+  
+  #button1 {
+    display: block;
+    width: 100%;
+    height: 30px;
+    background-color: grey;
+    color: white;
+  }
+  
+  .icons {
+    padding-top: 20px;
+    display: flex;
+  }
+  
+  .icons p {
+    padding-right: 20px;
+  }
+
+
+  @media screen and (max-width: 1000px) {
+    .column{
+      flex:100%;
+    }
+    .row{
+      display:block;
+    }
+   .contact_left  {
+      text-align: center;
+      margin-bottom:150px;
+    }
+    .contact2_form{
+      margin-left: 10%;
+    }
+   }

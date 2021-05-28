@@ -1,0 +1,161 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student</title>
+<script type="text/javascript">
+function validateForm() {
+if (isEmpty(document.getElementById('data_13').value.trim())) {
+alert('First Name is required!');
+return false;
+}
+
+if (isEmpty(document.getElementById('data_15').value.trim())) {
+alert('Last Name is required!');
+return false;
+}
+if (isEmpty(document.getElementById('data_16').value.trim())) {
+alert('Street Address is required!');
+return false;
+}
+if (isEmpty(document.getElementById('data_17').value.trim())) {
+alert('City is required!');
+return false;
+}
+if (isEmpty(document.getElementById('data_18').value.trim())) {
+alert('State/Province is required!');
+return false;
+}
+if (isEmpty(document.getElementById('data_19').value.trim())) {
+alert('Email is required!');
+return false;
+}
+if (!validateEmail(document.getElementById('data_19').value.trim())) {
+alert('Email must be a valid email address!');
+return false;
+}
+/if (isEmpty(document.getElementById('myFile').value.trim())) {
+alert('File Must Be Uploaded!');
+return false;
+}/
+return true;
+}
+function isEmpty(str) { return (str.length === 0 || !str.trim()); }
+function validateEmail(email) {
+var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,15}(?:\.[a-z]{2})?)$/i;
+return isEmpty(email) || re.test(email);
+}
+</script>
+  <style>
+    .split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color:yellow;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+}
+
+ </style>
+</head>
+<body>
+	<div class="split left">
+  <div class="centered">
+    <h2>Tasks Assigned</h2>
+   <!-- <p>Some text.</p> -->
+   <a href="loginmain.php"> Logout </a>
+  </div>
+</div>
+
+<div class="split right">
+  <div class="centered">
+    <form method="post" action="studenthome.php" onSubmit="return validateForm();">
+<div style="max-width: 400px;">
+</div>
+<div style="padding-bottom: 18px;font-size : 24px;"><center>Volunteer/Student Registration</center></div>
+<div style="padding-bottom: 18px;font-size : 24px;"><center>Please Complete The Form Below To Apply For This Position</center></div><br>
+<div style="padding-bottom: 18px;">First Name<span style="color: red;"> *</span><br/>
+<input type="text" id="data_13" name="data_13" style="max-width : 450px;" class="form-control"/>
+</div>
+<div style="padding-bottom: 18px;">Middle Name<span style="color: red;"><br/>
+<input type="text" id="data_14" name="data_14" style="max-width : 450px;" class="form-control"/>
+</div>
+<div style="padding-bottom: 18px;">Last Name<span style="color: red;"> *</span><br/>
+<input type="text" id="data_15" name="data_15" style="max-width : 450px;" class="form-control"/>
+</div>
+<div style="padding-bottom: 18px;">Street Address<span style="color: red;"> *</span><br/>
+<input type="text" id="data_16" name="data_16" style="max-width : 450px;" class="form-control"/>
+</div>
+<div style="display: flex; padding-bottom: 18px;max-width : 450px;">
+<div style=" margin-left: 0; margin-right: 1%; width: 49%;">City<span style="color: red;"> *</span><br/>
+<input type="text" id="data_17" name="data_17" style="max-width: 100%;" class="form-control"/>
+</div>
+<div style=" margin-left: 1%; margin-right: 0; width: 49%;">State/Province<span style="color: red;"> *</span><br/>
+<input type="text" id="data_18" name="data_18" style="max-width: 100%;" class="form-control"/>
+</div>
+</div><div style="padding-bottom: 18px;">Email<span style="color: red;"> *</span><br/>
+<input type="text" id="data_19" name="data_19" style="max-width : 450px;" class="form-control"/>
+</div>
+<div style="padding-bottom: 18px;">Phone Number<br/>
+<input type="tel" id="data_20" name="data_20" style="max-width : 450px;" class="form-control" pattern="[0-9]{10}" />
+</div>
+<div style="padding-bottom: 18px;">Applying For Position<span style="color: red;"> *</span><br/>
+<select id="data_21" name="data_21" style="max-width : 450px;" class="form-control"><option>Volunteer</option>
+<option>Research</option>
+<option>Teaching</option>
+</select>
+</div>
+<div style="padding-bottom: 18px;">Select Your Department<span style="color: red;"> *</span><br/>
+<select id="data_22" name="data_22" style="max-width : 450px;" class="form-control"><option>CSE</option>
+<option>EEE</option>
+<option>ECE</option>
+</select>
+</div>
+<div style="padding-bottom: 18px;">Select A Professor<span style="color: red;"> *</span><br/>
+<select id="data_23" name="data_23" style="max-width : 450px;" class="form-control">
+<option>Harry Kane</option>
+<option>Eden Hazard</option>
+<option>Marcus Rashford</option>
+<option>Dean Henderson</option>
+</select>
+</div>
+<div style="padding-bottom: 18px;">Areas Of Interest<br/>
+<span><input type="checkbox" id="data_7_0" name="data_7[]" value="Machine Learning"/> Machine Learning</span><br/>
+<span><input type="checkbox" id="data_7_1" name="data_7[]" value="Software Engineering"/> Software Engineering</span><br/>
+<span><input type="checkbox" id="data_7_2" name="data_7[]" value="Computer Vision"/> Computer Vision</span><br/>
+<span><input type="checkbox" id="data_7_3" name="data_7[]" value="Artificial Intelligence"/> Artificial Intelligence</span><br/>
+<span><input type="checkbox" id="data_7_4" name="data_7[]" value="Databases"/> Databases</span><br/>
+<span><input type="checkbox" id="data_7_5" name="data_7[]" value="Information Security"/> Information Security</span><br/>
+<span><input type="checkbox" id="data_7_6" name="data_7[]" value="Robotics"/> Robotics</span><br/>
+</div>
+<div style="padding-bottom: 18px;">Graduation Date<br/>
+<input type="Date" id="data_24" name="data_24" style="max-width : 450px;" class="form-control"/>
+</div>
+<div style="padding-bottom: 18px;">Upload Resume<span style="color: red;"> *</span><br/><br/>
+ <input type="file" id="myFile" name="filename">
+</div>
+<!--
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/pikaday.min.js" type="text/javascript"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/css/pikaday.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">new Pikaday({ field: document.getElementById('data_24') });</script> -->
+<div style="padding-bottom: 18px;"><input name="skip_Submit" value="Submit" type="submit"/></div>
+<!--<div>
+<div style="float:right"><a href="https://www.100forms.com" id="lnk100" title="form to email">form to email</a></div>
+<script src="https://www.100forms.com/js/FORMKEY:6UXAGA32Y9HX/SEND:my@email.com" type="text/javascript"></script>
+</div>-->
+</form>
+  </div>
+</div>
+</body>
+</html>
